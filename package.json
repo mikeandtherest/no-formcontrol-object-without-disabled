@@ -1,0 +1,25 @@
+{
+  "name": "eslint-plugin-no-formcontrol-object-without-disabled",
+  "version": "1.0.0",
+  "description": "Custom ES Lint rule to prevent the initialization of a formControl object without the disabled property.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "eslint": "8.56.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeandtherest/no-formcontrol-object-without-disabled.git"
+  },
+  "author": "Mikeandtherest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikeandtherest/no-formcontrol-object-without-disabled/issues"
+  },
+  "homepage": "https://github.com/mikeandtherest/no-formcontrol-object-without-disabled#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

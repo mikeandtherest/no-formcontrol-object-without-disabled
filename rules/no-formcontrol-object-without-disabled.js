@@ -14,7 +14,7 @@ module.exports = {
     create(context) {
         return {
             ArrayExpression(node) {
-                if (node.elements[0].type === 'ObjectExpression') {
+                if (node?.elements?.[0]?.type === 'ObjectExpression') {
                     const properties = node.elements[0].properties;
                     const hasValue = properties.some(property => property.key.name === 'value');
                     const hasDisabled = properties.some(property => property.key.name === 'disabled');

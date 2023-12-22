@@ -14,6 +14,19 @@ module.exports = {
     create(context) {
         return {
             ArrayExpression(node) {
+                let formGroupFound = false;
+                let tmpNode = node;
+                while (tmpNode.parent) {
+                    if (tmpNode.parent?.type === 'CallExpression') {
+                        const propName = tmpNode.parent?.callee?.property?.name?.toLowerCase();
+                        if (propName && ['group', 'formgroup'].some(name => propName.indexOf(name) !== -1)) {
+                            formGroupFound = true;
+                            break;
+                        }
+                    }
+                    tmpNode = tmpNode.parent;
+                }
+                if (!formGroupFound) { return; }
                 if (node?.elements?.[0]?.type === 'ObjectExpression') {
                     const properties = node.elements[0].properties;
                     const hasValue = properties.some(property => property.key.name === 'value');

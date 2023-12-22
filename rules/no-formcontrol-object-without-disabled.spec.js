@@ -47,3 +47,12 @@ ruleTester.run('no-formcontrol-object-without-disabled', noFormcontrolObjectWith
         errors: [{ messageId: 'incompleteInitObject' }, { messageId: 'incompleteInitObject' }],
     }]
 });
+
+ruleTester.run('ignore-non-form-realted-objects', noFormcontrolObjectWithoutDisabledRule, {
+    valid: [{
+        code: `
+            fakeImportData = [{ column: 'A', header: 'TITLE', value: 'Mr', valueTypeMatch: false }];
+        `,
+    }],
+    invalid: []
+});
